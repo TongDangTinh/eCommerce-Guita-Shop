@@ -1,52 +1,55 @@
-<%= form_with(model: instrument, local: true) do |form| %>
-  <% if instrument.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(instrument.errors.count, "error") %> prohibited this instrument from being saved:</h2>
-
-      <ul>
-      <% instrument.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for(@instrument) do |f| %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :brand %>
-    <%= form.text_field :brand %>
+    <div class="col-md-3">
+      <%= f.label :price %>
+      <%= f.number_field :price, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :model %>
-    <%= form.text_field :model %>
+  <div class="row">
+    <div class="col-md-9">
+      <%= f.label :model %>
+      <%= f.text_field :model, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="row">
+    <div class="col-md-9">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :condition %>
-    <%= form.text_field :condition %>
-  </div>
+  <div class="row mt-3">
+    <div class="col-md-3">
+      <%= f.label :brand %>
+      <%= f.text_field :brand %>
 
-  <div class="field">
-    <%= form.label :finish %>
-    <%= form.text_field :finish %>
+    </div>
+    <div class="col-md-3">
+      <%= f.label :finish %>
+      <%= f.text_field :finish  %>
+    </div> 
+    <div class="col-md-3">
+      <%= f.label :condition %>
+      <%= f.text_field :condition %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  
+  <div class="row mt-3">
+    <div class="col-md-4">
+      <%= f.label :image, "Add image" %>
+      <%= f.file_field :image, class: "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  
+  <div class="row mt-3">
+    <div class="actions col-md-3">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>
