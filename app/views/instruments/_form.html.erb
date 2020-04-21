@@ -27,29 +27,31 @@
   <div class="row mt-3">
     <div class="col-md-3">
       <%= f.label :brand %>
-      <%= f.text_field :brand %>
-
+      <%= f.select :brand, Instrument::BRAND, prompt: "Select brand" %>
     </div>
     <div class="col-md-3">
       <%= f.label :finish %>
-      <%= f.text_field :finish  %>
+      <%= f.select :finish, Instrument::FINISH, prompt: "Select finish" %>
     </div> 
     <div class="col-md-3">
       <%= f.label :condition %>
-      <%= f.text_field :condition %>
+      <%= f.select :condition, Instrument::CONDITION, prompt: "Select condition" %>
     </div>
   </div>
   
   <div class="row mt-3">
     <div class="col-md-4">
-      <%= f.label :image, "Add image" %>
+      <%= f.label :image, "Choose a file..." %>
       <%= f.file_field :image, class: "form-control" %>
     </div>
   </div>
   
   <div class="row mt-3">
-    <div class="actions col-md-3">
-      <%= f.submit %>
+    <div class="actions col-md-2 mt-1">
+      <%= f.submit "Create instrument", class: "btn btn-primary" %>
+    </div>
+    <div class="col-md-1 mt-1">
+      <%= link_to "Cancel", instruments_path, class: "btn btn-secondary" %>
     </div>
   </div>
 <% end %>
