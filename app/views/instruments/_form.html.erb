@@ -1,0 +1,57 @@
+<%= form_for(@instrument) do |f| %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.label :price %>
+      <%= f.number_field :price, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <%= f.label :model %>
+      <%= f.text_field :model, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-3">
+      <%= f.label :brand %>
+      <%= f.select :brand, Instrument::BRAND, prompt: "Select brand" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.label :finish %>
+      <%= f.select :finish, Instrument::FINISH, prompt: "Select finish" %>
+    </div> 
+    <div class="col-md-3">
+      <%= f.label :condition %>
+      <%= f.select :condition, Instrument::CONDITION, prompt: "Select condition" %>
+    </div>
+  </div>
+  
+  <div class="row mt-3">
+    <div class="col-md-4">
+      <%= f.label :image, "Choose a file..." %>
+      <%= f.file_field :image, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="row mt-3">
+    <div class="actions col-md-2 mt-1">
+      <%= f.submit "Create instrument", class: "btn btn-primary" %>
+    </div>
+    <div class="col-md-1 mt-1">
+      <%= link_to "Cancel", instruments_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+<% end %>
