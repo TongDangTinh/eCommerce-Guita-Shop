@@ -17,6 +17,9 @@ gem "devise", "~> 4.7", ">= 4.7.1"
 gem "gravatar_image_tag"
 gem "carrierwave", "~> 2.1"
 gem "mini_magick"
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
+gem "font-awesome-rails"
 gem "bootsnap", ">= 1.1.0", require: false
 
 group :development, :test do
@@ -29,6 +32,7 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do
