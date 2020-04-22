@@ -1,9 +1,9 @@
-<%= if cart_has_items %>
+<% if cart_has_items %>
   <%= link_to cart_path(@cart), class: "navbar-item" do %>
-    <span>
-      <i class="fa fa-shopping-cart"></i>
+    <span class="mr-1">
+      <i class="fa fa-shopping-cart"> Cart</i>
     </span>
-    <span>
+    <span class="mr-3 btn btn-primary">
       <%= cart_count_over_one %>
     </span>
   <% end %>
