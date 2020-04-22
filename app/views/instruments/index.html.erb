@@ -1,9 +1,9 @@
 <div class="row mt-3">
   <% @instruments.each do |instrument| %>
     <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
+      <div class="card ">
         <%= link_to image_tag(instrument.image_url(:thumb)), instrument, 
-          class: "card-imag-top img-fluid" %>
+          class: "card-imag-top img-fluid image" %>
         <div class="card-body">
           <% if instrument.condition? %>
             <h5 class="card-text"><%= instrument.condition %></h5>
