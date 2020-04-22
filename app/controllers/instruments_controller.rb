@@ -25,7 +25,7 @@ class InstrumentsController < ApplicationController
   # POST /instruments
   # POST /instruments.json
   def create
-    @instrument = current_user.instruments.build instrument_params
+    @instrument = current_user.instruments.build(instrument_params)
 
     respond_to do |format|
       if @instrument.save
