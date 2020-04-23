@@ -8,9 +8,9 @@
         </li>
       <% end %>
 
-      <% if @instrument.model? %>
+      <% if @instrument.finish? %>
         <li class="nav-link">
-          <%= @instrument.model %>
+          <%= @instrument.finish %>
         </li>
       <% end %>
 
@@ -46,8 +46,8 @@
 
       <% if @instrument.model %>
         <tr>
-          <td>Model:</td>
-          <td><%= @instrument.model %></td>
+          <td>Finish:</td>
+          <td><%= @instrument.finish %></td>
         </tr>
       <% end %>
     </table>
@@ -61,7 +61,8 @@
     <p>
       Sold by <%= @instrument.user.name %>
     </p>
-    <%= button_to "Add to cart", line_items_path(instrument_id: @instrument), class: "btn btn-warning" %>
+    <%= button_to "Add to cart", line_items_path(instrument_id: @instrument), 
+      class: "btn btn-warning" %>
   </div>
 </div>
 

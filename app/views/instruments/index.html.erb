@@ -1,31 +1,33 @@
-<div class="row mt-3">
+<div class="row mt-2">
   <% @instruments.each do |instrument| %>
-    <div class="col-md-3">
-      <div class="card ">
-        <%= link_to image_tag(instrument.image_url(:thumb)), instrument, 
-          class: "card-imag-top img-fluid image" %>
+    <div class="col-sm-4">
+      <div class="card">
+        <%= link_to instrument do %>
+          <%= image_tag instrument.image_url, class: "card-img-top" %>
+        <% end %>
         <div class="card-body">
-          <% if instrument.condition? %>
-            <h5 class="card-text"><%= instrument.condition %></h5>
-          <% end %>
-          <p class="card-title">
-            <%= link_to instrument.title, instrument %>
-          </p>
-          <span class="text-muted">
-            Sold by <%= instrument.user.name %>
-          </span>
-          <div>
-            <% if instrument_author(instrument) %>
-              <%= link_to "Edit", edit_instrument_path(instrument),
-                class: "btn btn-outline-secondary" %>
-              <%= link_to "Delete", instrument, method: :delete, 
-                data: { confirm: "Are you sure?" }, 
-                class: "btn btn-outline-secondary" %>
+          <p class="text-muted">
+            <% if instrument.model? %>
+              <h5 class="card-text"><%= instrument.model %></h5>
             <% end %>
-          </div>
-          <span class="float-right">
-            <%= number_to_currency(instrument.price) %>
-          </span>
+              <span class="text-muted">
+                Sold by <%= instrument.user.name %>
+              </span>
+          </p>
+          <p class="card-text">
+            <div>
+              <% if instrument_author(instrument) %>
+                <%= link_to "Edit", edit_instrument_path(instrument),
+                  class: "btn btn-outline-secondary" %>
+                <%= link_to "Delete", instrument, method: :delete, 
+                  data: { confirm: "Are you sure?" }, 
+                  class: "btn btn-outline-secondary" %>
+              <% end %>
+            </div>
+            <span class="float-right">
+              <%= number_to_currency(instrument.price) %>
+            </span>
+          </p>
         </div>
       </div>
     </div>

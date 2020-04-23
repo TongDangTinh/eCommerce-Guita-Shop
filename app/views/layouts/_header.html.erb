@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <h3>Guita Shop</h3>
+    <h3 class="text-primary">Guita Shop</h3>
   <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" 
     data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" 
@@ -9,13 +9,15 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav ml-auto">
+      <%= render "layouts/cart" %>
+
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to "Sell", new_instrument_path, 
             class: "nav-link btn btn-info" %>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" 
+          <a class="nav-link dropdown-toggle text-success" href="#" 
             id="navbarDropdownMenuLink" 
             role="button" data-toggle="dropdown" aria-haspopup="true" 
             aria-expanded="false">
